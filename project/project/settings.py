@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.yandex',
+
+    'django_apscheduler',  # для периодической отправки писем (миграции)
 ]
 
 SITE_ID = 1
@@ -167,6 +169,7 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True  # позволит избежать 
 # ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # позволит избежать дополнительного входа и активирует аккаунт сразу, как только мы перейдём по ссылке
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Таким образом мы можем, например, вместо отправки сообщений на реальные почтовые адреса печатать их в консоли.
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Для тестирования, печать писем в консоль.
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = "mvideo34"
